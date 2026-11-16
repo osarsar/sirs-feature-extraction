@@ -1,0 +1,262 @@
+[
+  {
+    "claim": "Le vaccin contre la rougeole distribué au Maroc est en réalité une quatrième dose du vaccin Covid déguisée.",
+    "risk_score": 0.4375,
+    "risk_std": 0.348,
+    "n_annotators": 16,
+    "llm_x1": 0.65,
+    "llm_x2": 0.6,
+    "llm_x3": 0.8,
+    "llm_x4": 0.5
+  },
+  {
+    "claim": "Le vaccin contre la rougeole provoque l'autisme chez les enfants marocains, plusieurs cas ont été signalés dans les hôpitaux.",
+    "risk_score": 0.75,
+    "risk_std": 0.3953,
+    "n_annotators": 16,
+    "llm_x1": 0.7,
+    "llm_x2": 0.7,
+    "llm_x3": 0.85,
+    "llm_x4": 0.55
+  },
+  {
+    "claim": "L'eau du robinet dans plusieurs villes marocaines contient des métaux lourds dangereux pour la santé selon des analyses indépendantes.",
+    "risk_score": 0.7188,
+    "risk_std": 0.3522,
+    "n_annotators": 16,
+    "llm_x1": 0.65,
+    "llm_x2": 0.65,
+    "llm_x3": 0.8,
+    "llm_x4": 0.4
+  },
+  {
+    "claim": "Les produits laitiers d'une grande marque marocaine contiennent des substances cancérigènes selon un rapport européen censuré.",
+    "risk_score": 0.7188,
+    "risk_std": 0.3046,
+    "n_annotators": 16,
+    "llm_x1": 0.65,
+    "llm_x2": 0.7,
+    "llm_x3": 0.85,
+    "llm_x4": 0.4
+  },
+  {
+    "claim": "Les hôpitaux publics marocains ont reçu des instructions de refuser les patients sans couverture médicale AMO.",
+    "risk_score": 0.7188,
+    "risk_std": 0.3522,
+    "n_annotators": 16,
+    "llm_x1": 0.65,
+    "llm_x2": 0.65,
+    "llm_x3": 0.85,
+    "llm_x4": 0.5
+  },
+  {
+    "claim": "Un lot de médicaments contrefaits en provenance d'Asie circule dans les pharmacies de Casablanca et Rabat.",
+    "risk_score": 0.6562,
+    "risk_std": 0.384,
+    "n_annotators": 16,
+    "llm_x1": 0.65,
+    "llm_x2": 0.6,
+    "llm_x3": 0.5,
+    "llm_x4": 0.5
+  },
+  {
+    "claim": "Le Roi Mohammed VI est décédé dans un hôpital parisien, Hespress a publié puis supprimé la nouvelle.",
+    "risk_score": 0.7188,
+    "risk_std": 0.3522,
+    "n_annotators": 16,
+    "llm_x1": 0.95,
+    "llm_x2": 0.55,
+    "llm_x3": 0.95,
+    "llm_x4": 0.85
+  },
+  {
+    "claim": "Le ministre Ouahbi a acquis une villa de 11 millions de dirhams à Rabat grâce à un prêt bancaire juste avant sa nomination.",
+    "risk_score": 0.4688,
+    "risk_std": 0.2778,
+    "n_annotators": 16,
+    "llm_x1": 0.5,
+    "llm_x2": 0.45,
+    "llm_x3": 0.7,
+    "llm_x4": 0.3
+  },
+  {
+    "claim": "Le ministre des Sports marocain a déclaré que le Maroc ne représente pas l'Afrique et n'a pas besoin de son soutien.",
+    "risk_score": 0.3125,
+    "risk_std": 0.348,
+    "n_annotators": 16,
+    "llm_x1": 0.45,
+    "llm_x2": 0.4,
+    "llm_x3": 0.75,
+    "llm_x4": 0.25
+  },
+  {
+    "claim": "Le gouvernement marocain cache les vrais chiffres de l'inflation pour éviter des manifestations populaires.",
+    "risk_score": 0.625,
+    "risk_std": 0.4146,
+    "n_annotators": 16,
+    "llm_x1": 0.65,
+    "llm_x2": 0.6,
+    "llm_x3": 0.85,
+    "llm_x4": 0.5
+  },
+  {
+    "claim": "Plusieurs députés marocains possèdent des comptes offshore non déclarés révélés par une fuite de données internationale.",
+    "risk_score": 0.5,
+    "risk_std": 0.3953,
+    "n_annotators": 16,
+    "llm_x1": 0.6,
+    "llm_x2": 0.5,
+    "llm_x3": 0.8,
+    "llm_x4": 0.3
+  },
+  {
+    "claim": "La CAF a décidé de retirer l'organisation de la CAN 2025 au Maroc en raison du retard des infrastructures.",
+    "risk_score": 0.4375,
+    "risk_std": 0.348,
+    "n_annotators": 16,
+    "llm_x1": 0.4,
+    "llm_x2": 0.35,
+    "llm_x3": 0.8,
+    "llm_x4": 0.5
+  },
+  {
+    "claim": "Des réseaux d'enlèvement d'enfants opèrent activement dans plusieurs villes marocaines selon des témoins.",
+    "risk_score": 0.7812,
+    "risk_std": 0.3046,
+    "n_annotators": 16,
+    "llm_x1": 0.75,
+    "llm_x2": 0.75,
+    "llm_x3": 0.8,
+    "llm_x4": 0.6
+  },
+  {
+    "claim": "Un séisme de magnitude 7 ou plus va frapper le Maroc dans les prochains jours selon des experts en sismologie.",
+    "risk_score": 0.7812,
+    "risk_std": 0.248,
+    "n_annotators": 16,
+    "llm_x1": 0.8,
+    "llm_x2": 0.8,
+    "llm_x3": 0.9,
+    "llm_x4": 0.9
+  },
+  {
+    "claim": "Les fonds destinés à la reconstruction après le séisme d'Al Haouz ont été massivement détournés par des responsables locaux.",
+    "risk_score": 0.7188,
+    "risk_std": 0.3522,
+    "n_annotators": 16,
+    "llm_x1": 0.75,
+    "llm_x2": 0.6,
+    "llm_x3": 0.85,
+    "llm_x4": 0.65
+  },
+  {
+    "claim": "Des cellules terroristes préparent des attaques simultanées dans plusieurs villes marocaines pendant la CAN 2025.",
+    "risk_score": 0.875,
+    "risk_std": 0.2165,
+    "n_annotators": 16,
+    "llm_x1": 0.9,
+    "llm_x2": 0.85,
+    "llm_x3": 0.9,
+    "llm_x4": 0.9
+  },
+  {
+    "claim": "Des campagnes organisées sur les réseaux sociaux incitent les jeunes marocains à l'émigration clandestine massive vers l'Europe.",
+    "risk_score": 0.5938,
+    "risk_std": 0.4038,
+    "n_annotators": 16,
+    "llm_x1": 0.6,
+    "llm_x2": 0.65,
+    "llm_x3": 0.8,
+    "llm_x4": 0.45
+  },
+  {
+    "claim": "Le partenariat entre McDonald's et la FRMF est une trahison envers la cause palestinienne pendant la campagne de boycott.",
+    "risk_score": 0.5625,
+    "risk_std": 0.4285,
+    "n_annotators": 16,
+    "llm_x1": 0.55,
+    "llm_x2": 0.7,
+    "llm_x3": 0.8,
+    "llm_x4": 0.6
+  },
+  {
+    "claim": "Le Maroc a signé un accord militaire secret avec Israël incluant l'installation de bases militaires sur le territoire marocain.",
+    "risk_score": 0.4688,
+    "risk_std": 0.3737,
+    "n_annotators": 16,
+    "llm_x1": 0.85,
+    "llm_x2": 0.55,
+    "llm_x3": 0.9,
+    "llm_x4": 0.5
+  },
+  {
+    "claim": "Les prix du mouton pour l'Aïd Al-Adha vont dépasser 6000 dirhams cette année à cause de l'exportation massive vers l'étranger.",
+    "risk_score": 0.625,
+    "risk_std": 0.375,
+    "n_annotators": 16,
+    "llm_x1": 0.5,
+    "llm_x2": 0.55,
+    "llm_x3": 0.85,
+    "llm_x4": 0.65
+  },
+  {
+    "claim": "Le mouvement Gen Z 212 est financé par des puissances étrangères pour déstabiliser le Maroc de l'intérieur.",
+    "risk_score": 0.6562,
+    "risk_std": 0.3409,
+    "n_annotators": 16,
+    "llm_x1": 0.8,
+    "llm_x2": 0.6,
+    "llm_x3": 0.85,
+    "llm_x4": 0.55
+  },
+  {
+    "claim": "La nouvelle Moudawana réformée va autoriser l'héritage égal entre hommes et femmes contre les préceptes religieux.",
+    "risk_score": 0.5312,
+    "risk_std": 0.4134,
+    "n_annotators": 16,
+    "llm_x1": 0.65,
+    "llm_x2": 0.5,
+    "llm_x3": 0.85,
+    "llm_x4": 0.45
+  },
+  {
+    "claim": "La Bourse de Casablanca a clôturé la semaine en hausse de 0,53% portée par le secteur bancaire.",
+    "risk_score": 0.125,
+    "risk_std": 0.2795,
+    "n_annotators": 16,
+    "llm_x1": 0.15,
+    "llm_x2": 0.05,
+    "llm_x3": 0.65,
+    "llm_x4": 0.05
+  },
+  {
+    "claim": "Le Maroc a exporté un record de 800 000 tonnes d'agrumes cette saison agricole vers l'Union européenne.",
+    "risk_score": 0.2812,
+    "risk_std": 0.248,
+    "n_annotators": 16,
+    "llm_x1": 0.15,
+    "llm_x2": 0.1,
+    "llm_x3": 0.7,
+    "llm_x4": 0.1
+  },
+  {
+    "claim": "L'ONCF annonce le lancement d'une étude pour une nouvelle ligne TGV reliant Marrakech à Agadir.",
+    "risk_score": 0.1875,
+    "risk_std": 0.2997,
+    "n_annotators": 16,
+    "llm_x1": 0.2,
+    "llm_x2": 0.1,
+    "llm_x3": 0.7,
+    "llm_x4": 0.1
+  },
+  {
+    "claim": "Le Salon International de l'Agriculture de Meknès ouvre ses portes la semaine prochaine avec la participation de 60 pays.",
+    "risk_score": 0.125,
+    "risk_std": 0.2165,
+    "n_annotators": 16,
+    "llm_x1": 0.1,
+    "llm_x2": 0.05,
+    "llm_x3": 0.65,
+    "llm_x4": 0.15
+  }
+]
