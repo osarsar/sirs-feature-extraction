@@ -1,6 +1,6 @@
 """
-Architecture Ablation Study - Complete and Professional
-Tests ALL architecture variants per dimension to justify the final design.
+Architecture Ablation Study
+Tests architecture variants per dimension to select the final design.
 
 Experiments:
   x1 (Topic Sensitivity):

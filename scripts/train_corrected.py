@@ -1,5 +1,5 @@
 """
-Corrected training script - uses ablation-validated architectures.
+Training script with ablation-validated architectures.
 Trains both separate (4 encoders) and unified (1 encoder, 4 heads) models.
 All dimensions use pure regression with ablation-optimal depths:
   x1: 3L [256, 128, 64]
