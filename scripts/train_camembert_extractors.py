@@ -22,6 +22,10 @@ from sklearn.metrics import mean_squared_error, mean_absolute_error
 from scipy.stats import spearmanr
 import time
 import logging
+import sys
+
+sys.path.insert(0, str(Path(__file__).parent))
+from sirs_paper1 import FeatureExtractor as Paper1FeatureExtractor  # original Paper 1 extractors
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
@@ -40,7 +44,7 @@ PATIENCE = 4
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 USE_AMP = torch.cuda.is_available()
 
-DATA_DIR = Path(__file__).parent.parent / "data" / "final"
+DATA_DIR = Path(__file__).parent.parent / "data"
 OUTPUT_DIR = Path(__file__).parent.parent / "models"
 RESULTS_DIR = Path(__file__).parent.parent / "results"
 OUTPUT_DIR.mkdir(exist_ok=True)
@@ -53,8 +57,10 @@ torch.manual_seed(SEED)
 logger.info(f"Device: {DEVICE}, AMP: {USE_AMP}")
 
 # ─── SIRS FORMULA (from Paper 1) ───────────────────────────────────────────
-# Weights from Paper 1: w1=0.30, w2=0.25, w3=0.25, w4=0.20
-SIRS_WEIGHTS = [0.30, 0.25, 0.25, 0.20]
+# Weights from Paper 1 (SIRS, Sec. 3.2.1, grid search over 829 combinations;
+# societal-risk-scorer/configs/config.yaml): w1=0.20, w2=0.10, w3=0.55, w4=0.15
+# (Previously [0.30, 0.25, 0.25, 0.20], which were NOT Paper 1's weights.)
+SIRS_WEIGHTS = [0.20, 0.10, 0.55, 0.15]
 
 def sirs_formula(x1, x2, x3, x4):
     """Paper 1 base formula: weighted sum capped at 1.0"""
@@ -340,8 +346,17 @@ TEMPORAL_KEYWORDS = {
     0.6: ["dernière heure", "imminent", "urgent", "alerte"],
 }
 
+_PAPER1_EXTRACTOR = Paper1FeatureExtractor()
+
+def paper1_extract(claim):
+    """ORIGINAL Paper 1 rule-based extractors (scripts/sirs_paper1, copied from
+    societal-risk-scorer/src/features). This is the baseline reported in the paper."""
+    return tuple(_PAPER1_EXTRACTOR.extract_numeric(claim))
+
+
 def rule_based_extract(claim):
-    """Paper 1 keyword-based extraction."""
+    """SIMPLIFIED keyword extraction (NOT Paper 1's code: smaller lexicons,
+    different x2/x4 formulas). Kept only as a secondary, clearly-labelled baseline."""
     text = claim.lower()
 
     # x1
@@ -420,26 +435,28 @@ if __name__ == "__main__":
     # 1. RULE-BASED BASELINE
     # ═══════════════════════════════════════════════════════════════════════
     logger.info("\n" + "="*60)
-    logger.info("EVALUATING: Rule-based baseline (Paper 1)")
+    logger.info("EVALUATING: Rule-based baseline (ORIGINAL Paper 1 extractors)")
     logger.info("="*60)
 
-    rule_preds = [rule_based_extract(item['claim']) for item in gold_for_eval]
-    rule_results = evaluate_end_to_end(rule_preds, gold_for_eval)
-    logger.info(f"Rule-based end-to-end: ρ={rule_results['rho']:.3f}, MSE={rule_results['mse']:.4f}")
-    all_results['rule_based'] = rule_results
+    for key, extract_fn in [('rule_based', paper1_extract),
+                            ('rule_based_simplified', rule_based_extract)]:
+        rule_preds = [extract_fn(item['claim']) for item in gold_for_eval]
+        rule_results = evaluate_end_to_end(rule_preds, gold_for_eval)
+        logger.info(f"{key} end-to-end: ρ={rule_results['rho']:.3f}, MSE={rule_results['mse']:.4f}")
+        all_results[key] = rule_results
 
-    # Per-dimension rule-based
-    for i, dim in enumerate(['x1', 'x2', 'x3', 'x4']):
-        preds = [p[i] for p in rule_preds]
-        trues = [item[dim] for item in gold_for_eval]
-        rho = spearmanr(trues, preds)[0]
-        logger.info(f"  Rule-based {dim}: ρ={rho:.3f}")
+        # Per-dimension rule-based (against LLM silver dimensions)
+        for i, dim in enumerate(['x1', 'x2', 'x3', 'x4']):
+            preds = [p[i] for p in rule_preds]
+            trues = [item[dim] for item in gold_for_eval]
+            rho = spearmanr(trues, preds)[0]
+            logger.info(f"  {key} {dim}: ρ={rho:.3f}")
 
     # ═══════════════════════════════════════════════════════════════════════
     # 2. LLM ZERO-SHOT BASELINE
     # ═══════════════════════════════════════════════════════════════════════
     logger.info("\n" + "="*60)
-    logger.info("EVALUATING: LLM zero-shot (Claude Opus)")
+    logger.info("EVALUATING: LLM zero-shot (Claude Sonnet 4)")
     logger.info("="*60)
 
     llm_preds = [(item['llm_x1'], item['llm_x2'], item['llm_x3'], item['llm_x4']) for item in gold_data]

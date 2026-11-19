@@ -1,0 +1,25 @@
+{
+  "source": "data/human_ratings_16.csv (16 anonymised annotators x 26 claims; 0.15/0.50/0.85)",
+  "gold_label_used": "mean of 16 (rounded to 1e-9 so identical vote counts are exact ties)",
+  "first_13_responses": {
+    "krippendorff_alpha_interval": 0.191,
+    "pairwise_spearman_mean": 0.245,
+    "pairwise_range": [
+      -0.63,
+      0.65
+    ],
+    "reference_leave_one_out_mean": 0.423,
+    "reference_leave_one_out_median": 0.359
+  },
+  "all_16": {
+    "krippendorff_alpha_interval": 0.216,
+    "pairwise_spearman_mean": 0.266,
+    "pairwise_range": [
+      -0.63,
+      0.81
+    ],
+    "reference_leave_one_out_mean": 0.465,
+    "reference_leave_one_out_median": 0.407
+  },
+  "note": "Paper v2 (16 Nov) reported alpha=0.251 from scripts/process_annotations.py; not reproduced by the krippendorff package."
+}
