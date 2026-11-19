@@ -1,0 +1,137 @@
+{
+  "grid_size": 829,
+  "paper1_weights": [
+    0.2,
+    0.1,
+    0.55,
+    0.15
+  ],
+  "per_seed": [
+    {
+      "seed": 42,
+      "separate": {
+        "weights_val_opt": [
+          0.6,
+          0.05,
+          0.05,
+          0.3
+        ],
+        "val_rho": 0.8753559076803263,
+        "test_rho_paper1_w": 0.4323532094870118,
+        "test_rho_val_opt_w": 0.6487015192382568
+      },
+      "unified": {
+        "weights_val_opt": [
+          0.6,
+          0.2,
+          0.05,
+          0.15
+        ],
+        "val_rho": 0.8778113156493252,
+        "test_rho_paper1_w": 0.3787812470724178,
+        "test_rho_val_opt_w": 0.6064620873344423
+      },
+      "llm": {
+        "weights_val_opt": [
+          0.45,
+          0.45,
+          0.05,
+          0.05
+        ],
+        "val_rho": 0.9142011210206663,
+        "test_rho_paper1_w": 0.7925903157236087,
+        "test_rho_val_opt_w": 0.8667433479807389
+      }
+    },
+    {
+      "seed": 43,
+      "separate": {
+        "weights_val_opt": [
+          0.45,
+          0.35,
+          0.05,
+          0.15
+        ],
+        "val_rho": 0.866950081479953,
+        "test_rho_paper1_w": 0.47974379162299885,
+        "test_rho_val_opt_w": 0.626379868232176
+      },
+      "unified": {
+        "weights_val_opt": [
+          0.6,
+          0.25,
+          0.05,
+          0.1
+        ],
+        "val_rho": 0.8601342900762274,
+        "test_rho_paper1_w": 0.5116809230624683,
+        "test_rho_val_opt_w": 0.6487015192382568
+      },
+      "llm": {
+        "weights_val_opt": [
+          0.5,
+          0.25,
+          0.05,
+          0.2
+        ],
+        "val_rho": 0.9250761370560183,
+        "test_rho_paper1_w": 0.7925903157236087,
+        "test_rho_val_opt_w": 0.845132048091768
+      }
+    },
+    {
+      "seed": 44,
+      "separate": {
+        "weights_val_opt": [
+          0.4,
+          0.15,
+          0.05,
+          0.4
+        ],
+        "val_rho": 0.8406662984160508,
+        "test_rho_paper1_w": 0.48901586204090935,
+        "test_rho_val_opt_w": 0.6950618713278094
+      },
+      "unified": {
+        "weights_val_opt": [
+          0.6,
+          0.05,
+          0.05,
+          0.3
+        ],
+        "val_rho": 0.8641252310845753,
+        "test_rho_paper1_w": 0.47150195125152283,
+        "test_rho_val_opt_w": 0.6421767289441717
+      },
+      "llm": {
+        "weights_val_opt": [
+          0.4,
+          0.45,
+          0.05,
+          0.1
+        ],
+        "val_rho": 0.9150058022556125,
+        "test_rho_paper1_w": 0.7925903157236087,
+        "test_rho_val_opt_w": 0.8818769197479319
+      }
+    }
+  ],
+  "separate": {
+    "paper1_mean": 0.46703762105030666,
+    "paper1_std": 0.024815977737171542,
+    "val_opt_mean": 0.656714419599414,
+    "val_opt_std": 0.028606051999015007
+  },
+  "unified": {
+    "paper1_mean": 0.4539880404621363,
+    "paper1_std": 0.05565149757145829,
+    "val_opt_mean": 0.6324467785056237,
+    "val_opt_std": 0.018566032667961085
+  },
+  "llm": {
+    "paper1_mean": 0.7925903157236087,
+    "paper1_std": 0.0,
+    "val_opt_mean": 0.8645841052734795,
+    "val_opt_std": 0.015078530986331282
+  }
+}

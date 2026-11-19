@@ -22,6 +22,7 @@ Usage: python architecture_ablation.py
 """
 
 import json
+import os
 import random
 import numpy as np
 import torch
@@ -54,8 +55,8 @@ MULTITASK_ALPHA = 0.3  # weight for classification loss in multi-task
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 USE_AMP = torch.cuda.is_available()
 
-DATA_DIR = Path("/home/oussama.sarsar/paper2/data/final")
-RESULTS_DIR = Path("/home/oussama.sarsar/paper2/results")
+DATA_DIR = Path(os.environ.get("SIRS_DATA_DIR", Path(__file__).resolve().parent.parent / "data"))
+RESULTS_DIR = Path(os.environ.get("SIRS_RESULTS_DIR", Path(__file__).resolve().parent.parent / "results"))
 RESULTS_DIR.mkdir(parents=True, exist_ok=True)
 
 logger.info(f"Device: {DEVICE}, AMP: {USE_AMP}")
@@ -515,7 +516,8 @@ if __name__ == "__main__":
     logger.info("\n--- BEST CONFIGURATION PER DIMENSION ---")
     for dim in ['x1', 'x2', 'x3', 'x4']:
         dim_results = {k: v for k, v in all_results.items() if v['dim'] == dim}
-        best_key = max(dim_results, key=lambda k: dim_results[k]['avg_test_rho'])
+        # Selection on the VALIDATION split only (mean val rho over seeds); test rho is reported, never used to choose.
+        best_key = max(dim_results, key=lambda k: sum(r['val_rho'] for r in dim_results[k]['runs']) / len(dim_results[k]['runs']))
         best = dim_results[best_key]
         logger.info(f"  {dim}: {best_key} (ρ={best['avg_test_rho']:.3f}±{best['std_test_rho']:.3f}, hidden={best['hidden_dims']})")
 

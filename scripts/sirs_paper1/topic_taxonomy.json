@@ -1,0 +1,25 @@
+{
+  "topics": [
+    {"rank": 1,  "name": "Activites Royales",           "sensitivity": 1.00, "keywords": ["roi", "mohammed vi", "souverain", "palais royal", "majesté", "prince héritier", "moulay", "discours royal", "dahir", "conseil des ministres"]},
+    {"rank": 2,  "name": "Cause nationale",              "sensitivity": 0.95, "keywords": ["sahara", "sahara marocain", "cause nationale", "intégrité territoriale", "provinces du sud", "laayoune", "dakhla", "polisario", "algérie", "nations unies"]},
+    {"rank": 3,  "name": "Plan d'autonomie",             "sensitivity": 0.90, "keywords": ["plan d'autonomie", "autonomie", "régionalisation", "sahara autonomie", "conseil consultatif", "statut spécial"]},
+    {"rank": 4,  "name": "Partis politiques",            "sensitivity": 0.86, "keywords": ["parti", "rni", "pam", "pjd", "istiqlal", "usfp", "pps", "mp", "uc", "coalition", "opposition", "akhannouch", "benkirane"]},
+    {"rank": 5,  "name": "Elections",                    "sensitivity": 0.81, "keywords": ["élections", "scrutin", "vote", "urnes", "candidat", "campagne électorale", "bureau de vote", "résultats élections", "législatives", "communales"]},
+    {"rank": 6,  "name": "Actions de protestation",      "sensitivity": 0.76, "keywords": ["protestation", "manifestation", "marche", "sit-in", "rassemblement", "contestation", "hirak", "mouvement social", "rue"]},
+    {"rank": 7,  "name": "Greves",                       "sensitivity": 0.71, "keywords": ["grève", "grève générale", "arrêt de travail", "débrayage", "grévistes", "mouvement de grève"]},
+    {"rank": 8,  "name": "Syndicats",                    "sensitivity": 0.67, "keywords": ["syndicat", "cdt", "umt", "fdt", "untm", "odp", "syndical", "négociations sociales", "dialogue social"]},
+    {"rank": 9,  "name": "Associations",                 "sensitivity": 0.62, "keywords": ["association", "amdh", "société civile", "ong", "droits de l'homme", "transparence", "bénévolat"]},
+    {"rank": 10, "name": "Champs religieux",             "sensitivity": 0.57, "keywords": ["religion", "islam", "mosquée", "ramadan", "habous", "conseil des oulémas", "commandeur des croyants", "fatwa", "prêche"]},
+    {"rank": 11, "name": "Mouvement islamique",          "sensitivity": 0.52, "keywords": ["islamiste", "justice et spiritualité", "adl wal ihsane", "pjd", "mouvement islamique", "salafiste", "radicalisation"]},
+    {"rank": 12, "name": "Sante",                        "sensitivity": 0.48, "keywords": ["santé", "hôpital", "vaccin", "épidémie", "ministère de la santé", "médecin", "chu", "maladie", "covid", "pharmacie"]},
+    {"rank": 13, "name": "Education",                    "sensitivity": 0.43, "keywords": ["éducation", "école", "enseignant", "élève", "rentrée scolaire", "ministère de l'éducation", "baccalauréat", "programme scolaire"]},
+    {"rank": 14, "name": "Enseignement",                 "sensitivity": 0.38, "keywords": ["université", "enseignement supérieur", "faculté", "étudiant", "bourse", "master", "doctorat", "recherche scientifique"]},
+    {"rank": 15, "name": "Normalisation",                "sensitivity": 0.33, "keywords": ["normalisation", "israël", "abraham", "relations diplomatiques", "reconnaissance", "ambassade", "coopération israël"]},
+    {"rank": 16, "name": "Cause palestinienne",          "sensitivity": 0.29, "keywords": ["palestine", "gaza", "jérusalem", "al-aqsa", "palestinien", "occupation", "solidarité palestine", "boycott"]},
+    {"rank": 17, "name": "Collectivites territoriales",  "sensitivity": 0.24, "keywords": ["commune", "région", "collectivité", "conseil régional", "président de commune", "budget communal", "développement local"]},
+    {"rank": 18, "name": "Saison agricole",              "sensitivity": 0.19, "keywords": ["agriculture", "récolte", "sécheresse", "barrage", "irrigation", "céréales", "ocp", "pluviométrie", "paysan"]},
+    {"rank": 19, "name": "Transport",                    "sensitivity": 0.14, "keywords": ["transport", "oncf", "tramway", "autoroute", "bus", "train", "aéroport", "port", "trafic"]},
+    {"rank": 20, "name": "Minorites religieuses",        "sensitivity": 0.10, "keywords": ["chrétien", "juif", "minorité religieuse", "liberté de culte", "conversion", "église", "synagogue"]},
+    {"rank": 21, "name": "Coupe du monde",               "sensitivity": 0.05, "keywords": ["coupe du monde", "mondial", "fifa", "stade", "équipe nationale", "lions de l'atlas", "football", "regragui"]}
+  ]
+}

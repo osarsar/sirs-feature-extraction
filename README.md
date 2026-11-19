@@ -1,122 +1,87 @@
 # SIRS Feature Extraction: From Keywords to Contextual Understanding
 
-Code, data, and results for the paper:
+Code, data and results for the paper:
 
-> **From Keywords to Contextual Understanding: Distilling LLM Knowledge into Transformer-Based Risk Feature Extractors**
+> **From Keywords to Contextual Understanding: Transformer-Based Feature Extraction for Societal Risk Scoring of Misinformation**
 > Oussama Sarsar, Mounir Soufyane, Yassine Maleh
 > LaSTI Laboratory, ENSA Khouribga, Sultan Moulay Slimane University
 
-## Overview
+The paper measures, for the first time, how the SIRS societal-risk framework performs **from raw text**. It keeps the SIRS base formula and its published weights fixed and replaces only the four feature extractors (topic sensitivity, actionability, audience scope, temporal sensitivity).
 
-This repository implements a knowledge distillation pipeline that transfers LLM extraction capability to local CamemBERT models for multi-dimensional misinformation risk scoring (SIRS framework).
+## Main results
 
-**Key results:**
-- LLM zero-shot extraction: ρ = 0.850
-- Distilled CamemBERT (separate): ρ = 0.694 (82% of LLM quality)
-- Distilled CamemBERT (unified): ρ = 0.609
-- Rule-based baseline: ρ = 0.165
+End-to-end Spearman ρ against 26 test claims rated by 16 annotators (gold = mean of 16). The SIRS base formula uses the published weights w = (0.20, 0.10, 0.55, 0.15). CamemBERT values are the mean ± std over 3 seeds; the 95% CIs come from a paired bootstrap (B = 10,000).
 
-## Repository Structure
+| Extraction | ρ | 95% CI |
+|---|---|---|
+| Rule-based (original Paper 1 extractors) | −0.302 | [−0.64, 0.11] |
+| CamemBERT, separate encoders | 0.467 ± 0.025 | [0.09, 0.74] |
+| CamemBERT, unified encoder | 0.454 ± 0.056 | [0.04, 0.76] |
+| LLM zero-shot (Claude Sonnet 4) | 0.793 | [0.52, 0.94] |
+| Human reference (leave-one-out) | 0.465 | — |
 
-```
-├── scripts/
-│   ├── train_corrected.py            # Main training: separate + unified models (3 seeds)
-│   ├── architecture_ablation.py      # 18-config ablation (depth × objective)
-│   ├── train_camembert_extractors.py # Individual dimension extractors
-│   └── train_camembert_unified_gpu.py# Unified model training
-├── data/
-│   ├── training_data_with_dimensions.json  # 974 claims with LLM silver labels
-│   └── gold_test_with_dimensions.json      # 26 claims with human gold labels (13 annotators)
-├── results/
-│   ├── corrected_results.json              # Final results (3 seeds × separate + unified)
-│   └── architecture_ablation_results.json  # Full ablation results (18 configs × 3 seeds)
-├── slurm/
-│   ├── run_corrected.slurm           # SLURM script for main training (H100)
-│   └── run_ablation_h100.slurm       # SLURM script for ablation (H100)
-└── README.md
-```
+With the formula weights **re-fitted on the validation split** (never on the test set), the results are:
+- CamemBERT separate: 0.657
+- CamemBERT unified: 0.632
+- LLM: 0.865
 
-## Architecture
+On every seed, audience scope falls to the minimum weight (0.05).
 
-Four SIRS dimensions are extracted from raw claim text:
-- **x1** (Topic Sensitivity): 3-layer regression head [256, 128, 64]
-- **x2** (Actionability): 1-layer regression head [256]
-- **x3** (Audience Scope): 1-layer regression head [128]
-- **x4** (Temporal Sensitivity): 1-layer regression head [128]
+The full output, including the paired differences and the median-gold robustness check, is in `results/paper_analysis_output.txt`.
 
-All heads use pure regression (MSE loss) on top of CamemBERT-base. Architecture selected via ablation over 18 configurations.
-
-## Requirements
+## Repository structure
 
 ```
-torch>=2.0
-transformers>=4.30
-scipy
-scikit-learn
+scripts/
+  sirs_paper1/                 Original Paper 1 rule-based extractors (baseline), unchanged
+  train_corrected_v4.py        Main training: separate + unified CamemBERT, 3 seeds; saves val/test predictions
+  optimize_weights_val.py      Re-fits the formula weights on the validation split (Paper 1 grid, 829 combos)
+  paper_analysis.py            Reproduces every human-evaluation number of the paper
+  architecture_ablation.py     Head-depth × objective ablation (18 configs × 3 seeds); selection on validation
+  train_camembert_extractors.py  Earlier extractor script (Paper 1 weights and baseline fixed)
+data/
+  training_data_with_dimensions.json   974 Hespress claims with LLM silver labels (x1..x4 + overall risk)
+  gold_test_with_dimensions.json       26 test claims: gold risk (mean of 16) + LLM dimension scores
+  test_claims.json                     26 test claims with category
+  human_ratings_16.csv                 Anonymised ratings of the 16 annotators (0.15 / 0.50 / 0.85)
+results/
+  predictions_v4.json                  Per-claim val/test predictions, 3 seeds, separate + unified
+  corrected_results_v4.json            Per-dimension and end-to-end metrics (v4 run)
+  weights_val_optimised.json           Weights selected on validation, per seed
+  architecture_ablation_results.json   Ablation (val and test ρ per config and seed)
+  human_agreement_16.json              Inter-annotator agreement
+  paper_analysis_output.txt            Output of scripts/paper_analysis.py
+slurm/                                 Job scripts used on the Toubkal HPC (adapt to your cluster)
+legacy/                                Scripts and results of the 16 Nov 2026 draft (superseded, see below)
 ```
 
-## Usage
-
-### Training (separate + unified, 3 seeds)
+## Reproducing the paper
 
 ```bash
-python scripts/train_corrected.py
+pip install torch transformers scipy scikit-learn numpy krippendorff
+
+# 1. Train separate + unified extractors (3 seeds) and save predictions (~5 min on one H100)
+python3 scripts/train_corrected_v4.py
+
+# 2. Re-fit the formula weights on the validation split
+python3 scripts/optimize_weights_val.py
+
+# 3. Reproduce all human-evaluation numbers (agreement, Tables 5, 6, 8, robustness)
+python3 scripts/paper_analysis.py
 ```
 
-### Architecture ablation
+Paths default to `data/` and `results/` inside the repository. Override them with `SIRS_DATA_DIR` and `SIRS_RESULTS_DIR`.
 
-```bash
-python scripts/architecture_ablation.py
-```
+## Correction notice (supersedes the 16 Nov 2026 version)
 
-### Data format
+The first version of this repository, and the draft it accompanied, contained errors that are corrected here:
+- **Formula weights.** The code used (0.30, 0.25, 0.25, 0.20), described as the Paper 1 weights. The actual Paper 1 weights are (0.20, 0.10, 0.55, 0.15).
+- **Baseline.** The "Paper 1 keywords" baseline was a simplified re-implementation. It is replaced by the original Paper 1 extractors (`scripts/sirs_paper1/`).
+- **Head depth.** The depth was selected on the test set. Selection now uses the validation split, which picks one hidden layer for all four dimensions.
+- **Human statistics.** These were computed on the first 13 responses, while the gold labels used all 16. Everything is now computed on the same 16 annotators, with the gold label being the mean of 16 and exact ties preserved.
 
-**Training data** (`training_data_with_dimensions.json`):
-```json
-{
-  "claim": "Le Maroc a signé un accord...",
-  "risk_score": 0.65,
-  "x1": 0.82,
-  "x2": 0.35,
-  "x3": 0.70,
-  "x4": 0.50
-}
-```
-
-**Gold test** (`gold_test_with_dimensions.json`): Same format, with dimension values derived from the median of 13 human annotators.
-
-## Results
-
-### Main comparison (end-to-end Spearman ρ)
-
-| Method | ρ |
-|---|---|
-| Rule-based (keywords) | 0.165 |
-| Human ceiling (individual) | 0.474 |
-| CamemBERT separate (4 encoders) | **0.694** |
-| CamemBERT unified (1 encoder) | 0.609 |
-| LLM zero-shot (Claude) | 0.850 |
-
-### Architecture ablation (per-dimension ρ, pure regression)
-
-| Dimension | 1 layer | 2 layers | 3 layers |
-|---|---|---|---|
-| x1: Topic | 0.723 | 0.723 | **0.750** |
-| x2: Actionability | **0.766** | 0.206 | 0.093 |
-| x3: Audience scope | **0.307** | 0.223 | 0.131 |
-| x4: Temporal | **0.781** | 0.671 | 0.650 |
-
-## Citation
-
-```bibtex
-@article{sarsar2026keywords,
-  title={From Keywords to Contextual Understanding: Distilling LLM Knowledge into Transformer-Based Risk Feature Extractors},
-  author={Sarsar, Oussama and Soufyane, Mounir and Maleh, Yassine},
-  journal={Social Network Analysis and Mining},
-  year={2026}
-}
-```
+As a result, the headline numbers changed from the earlier draft (for example, CamemBERT separate went from 0.694 to 0.467, and the LLM from 0.850 to 0.793). The superseded scripts and results are kept in `legacy/` for transparency.
 
 ## License
 
-MIT License
+See `LICENSE`.

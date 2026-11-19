@@ -1,0 +1,184 @@
+[
+  {
+    "claim": "Le vaccin contre la rougeole distribué au Maroc est en réalité une quatrième dose du vaccin Covid déguisée.",
+    "risk_score": 0.5,
+    "risk_mean": 0.4192,
+    "category": "Sante",
+    "claim_id": 1
+  },
+  {
+    "claim": "Le vaccin contre la rougeole provoque l'autisme chez les enfants marocains, plusieurs cas ont été signalés dans les hôpitaux.",
+    "risk_score": 0.85,
+    "risk_mean": 0.6346,
+    "category": "Sante",
+    "claim_id": 2
+  },
+  {
+    "claim": "L'eau du robinet dans plusieurs villes marocaines contient des métaux lourds dangereux pour la santé selon des analyses indépendantes.",
+    "risk_score": 0.5,
+    "risk_mean": 0.6077,
+    "category": "Sante",
+    "claim_id": 3
+  },
+  {
+    "claim": "Les produits laitiers d'une grande marque marocaine contiennent des substances cancérigènes selon un rapport européen censuré.",
+    "risk_score": 0.5,
+    "risk_mean": 0.6346,
+    "category": "Sante",
+    "claim_id": 4
+  },
+  {
+    "claim": "Les hôpitaux publics marocains ont reçu des instructions de refuser les patients sans couverture médicale AMO.",
+    "risk_score": 0.85,
+    "risk_mean": 0.6346,
+    "category": "Sante",
+    "claim_id": 5
+  },
+  {
+    "claim": "Un lot de médicaments contrefaits en provenance d'Asie circule dans les pharmacies de Casablanca et Rabat.",
+    "risk_score": 0.5,
+    "risk_mean": 0.6077,
+    "category": "Sante",
+    "claim_id": 6
+  },
+  {
+    "claim": "Le Roi Mohammed VI est décédé dans un hôpital parisien, Hespress a publié puis supprimé la nouvelle.",
+    "risk_score": 0.85,
+    "risk_mean": 0.6346,
+    "category": "Politique",
+    "claim_id": 7
+  },
+  {
+    "claim": "Le ministre Ouahbi a acquis une villa de 11 millions de dirhams à Rabat grâce à un prêt bancaire juste avant sa nomination.",
+    "risk_score": 0.5,
+    "risk_mean": 0.5,
+    "category": "Politique",
+    "claim_id": 8
+  },
+  {
+    "claim": "Le ministre des Sports marocain a déclaré que le Maroc ne représente pas l'Afrique et n'a pas besoin de son soutien.",
+    "risk_score": 0.5,
+    "risk_mean": 0.3923,
+    "category": "Politique",
+    "claim_id": 9
+  },
+  {
+    "claim": "Le gouvernement marocain cache les vrais chiffres de l'inflation pour éviter des manifestations populaires.",
+    "risk_score": 0.85,
+    "risk_mean": 0.6077,
+    "category": "Politique",
+    "claim_id": 10
+  },
+  {
+    "claim": "Plusieurs députés marocains possèdent des comptes offshore non déclarés révélés par une fuite de données internationale.",
+    "risk_score": 0.5,
+    "risk_mean": 0.5538,
+    "category": "Politique",
+    "claim_id": 11
+  },
+  {
+    "claim": "La CAF a décidé de retirer l'organisation de la CAN 2025 au Maroc en raison du retard des infrastructures.",
+    "risk_score": 0.5,
+    "risk_mean": 0.5269,
+    "category": "Politique",
+    "claim_id": 12
+  },
+  {
+    "claim": "Des réseaux d'enlèvement d'enfants opèrent activement dans plusieurs villes marocaines selon des témoins.",
+    "risk_score": 0.85,
+    "risk_mean": 0.6885,
+    "category": "Securite",
+    "claim_id": 13
+  },
+  {
+    "claim": "Un séisme de magnitude 7 ou plus va frapper le Maroc dans les prochains jours selon des experts en sismologie.",
+    "risk_score": 0.85,
+    "risk_mean": 0.7154,
+    "category": "Securite",
+    "claim_id": 14
+  },
+  {
+    "claim": "Les fonds destinés à la reconstruction après le séisme d'Al Haouz ont été massivement détournés par des responsables locaux.",
+    "risk_score": 0.85,
+    "risk_mean": 0.6885,
+    "category": "Securite",
+    "claim_id": 15
+  },
+  {
+    "claim": "Des cellules terroristes préparent des attaques simultanées dans plusieurs villes marocaines pendant la CAN 2025.",
+    "risk_score": 0.85,
+    "risk_mean": 0.7692,
+    "category": "Securite",
+    "claim_id": 16
+  },
+  {
+    "claim": "Des campagnes organisées sur les réseaux sociaux incitent les jeunes marocains à l'émigration clandestine massive vers l'Europe.",
+    "risk_score": 0.5,
+    "risk_mean": 0.5808,
+    "category": "Securite",
+    "claim_id": 17
+  },
+  {
+    "claim": "Le partenariat entre McDonald's et la FRMF est une trahison envers la cause palestinienne pendant la campagne de boycott.",
+    "risk_score": 0.5,
+    "risk_mean": 0.5538,
+    "category": "Societe",
+    "claim_id": 18
+  },
+  {
+    "claim": "Le Maroc a signé un accord militaire secret avec Israël incluant l'installation de bases militaires sur le territoire marocain.",
+    "risk_score": 0.5,
+    "risk_mean": 0.5,
+    "category": "Societe",
+    "claim_id": 19
+  },
+  {
+    "claim": "Les prix du mouton pour l'Aïd Al-Adha vont dépasser 6000 dirhams cette année à cause de l'exportation massive vers l'étranger.",
+    "risk_score": 0.85,
+    "risk_mean": 0.6615,
+    "category": "Societe",
+    "claim_id": 20
+  },
+  {
+    "claim": "Le mouvement Gen Z 212 est financé par des puissances étrangères pour déstabiliser le Maroc de l'intérieur.",
+    "risk_score": 0.85,
+    "risk_mean": 0.6615,
+    "category": "Societe",
+    "claim_id": 21
+  },
+  {
+    "claim": "La nouvelle Moudawana réformée va autoriser l'héritage égal entre hommes et femmes contre les préceptes religieux.",
+    "risk_score": 0.5,
+    "risk_mean": 0.5269,
+    "category": "Societe",
+    "claim_id": 22
+  },
+  {
+    "claim": "La Bourse de Casablanca a clôturé la semaine en hausse de 0,53% portée par le secteur bancaire.",
+    "risk_score": 0.15,
+    "risk_mean": 0.2577,
+    "category": "Neutre",
+    "claim_id": 23
+  },
+  {
+    "claim": "Le Maroc a exporté un record de 800 000 tonnes d'agrumes cette saison agricole vers l'Union européenne.",
+    "risk_score": 0.5,
+    "risk_mean": 0.3385,
+    "category": "Neutre",
+    "claim_id": 24
+  },
+  {
+    "claim": "L'ONCF annonce le lancement d'une étude pour une nouvelle ligne TGV reliant Marrakech à Agadir.",
+    "risk_score": 0.15,
+    "risk_mean": 0.3115,
+    "category": "Neutre",
+    "claim_id": 25
+  },
+  {
+    "claim": "Le Salon International de l'Agriculture de Meknès ouvre ses portes la semaine prochaine avec la participation de 60 pays.",
+    "risk_score": 0.15,
+    "risk_mean": 0.2577,
+    "category": "Neutre",
+    "claim_id": 26
+  }
+]
